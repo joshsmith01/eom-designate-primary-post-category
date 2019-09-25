@@ -1,12 +1,13 @@
 # EOM Designate Primary Post Category #
-Contributors: joshsmith01
-Donate link: https://www.efficiencyofmovement.com
-Tags: comments, category, primary
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Contributors: joshsmith01<br />
+Donate link: https://www.efficiencyofmovement.com<br />
+Tags: comments, category, primary<br />
+Requires at least: 3.0.1<br />
+Tested up to: 3.4<br />
+Stable tag: trunk<br />
+License: GPLv2 or later<br />
+License URI: http://www.gnu.org/licenses/gpl-2.0.html<br />
+
 
 Allow publishers to designate a primary category for their posts.
 ## Description ##
