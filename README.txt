@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== EOM Designate Primary Post Category ===
 Contributors: joshsmith01
 Donate link: https://www.efficiencyofmovement.com
 Tags: comments, category, primary
@@ -60,17 +60,9 @@ you put the stable version, in order to eliminate any doubt.
 No, this plugin essentially duplicates the existing categories meta data and adds a primary category to it.
 If you delete this plugin, all of the categories will remain.
 
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
-
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * Initial launch
 
 == Query for posts with a Primary Category ==
