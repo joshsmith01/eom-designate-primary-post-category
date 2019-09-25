@@ -15,8 +15,10 @@
  * @wordpress-plugin
  * Plugin Name:       EOM Designate Primary Post Category
  * Plugin URI:        https://github.com/joshsmith01/eom-designate-primary-post-category
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Allow publishers to designate a primary category for their posts.
  * Version:           1.0.0
+ * Requires at least: 5.2
+ * Requires PHP:      7.2
  * Author:            Josh Smith
  * Author URI:        https://www.efficiencyofmovement.com
  * License:           GPL-2.0+

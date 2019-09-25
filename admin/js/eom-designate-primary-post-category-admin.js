@@ -1,32 +1,28 @@
-(function( $ ) {
-	'use strict';
+(function ($) {
+    'use strict';
+    // execute when the DOM is ready
+    $(document).ready(function () {
 
-	/**
-	 * All of the code for your admin-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note: It has been assumed you will write jQuery code here, so the
-	 * $ function reference has been prepared for usage within the scope
-	 * of this function.
-	 *
-	 * This enables you to define handlers, for when the DOM is ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * When the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and/or other possibilities.
-	 *
-	 * Ideally, it is not considered best practise to attach more than a
-	 * single DOM-ready or window-load handler for a particular page.
-	 * Although scripts in the WordPress core, Plugins and Themes may be
-	 * practising this, we should strive to set a better example in our own work.
-	 */
+        $('#categorychecklist input:checkbox').on('change', function () {
 
-})( jQuery );
+            // Remove the Option from the Select box if the checkbox gets unchecked
+            let el = $(this);
+            let labelText = $(this).parent().text();
+            let label = $.trim(labelText);
+            if (el.prop('checked')) {
+                $('#primary-category-select ').append($('<option>', {
+                    value: label,
+                    text: label
+                }));
+            } else {
+                $("#primary-category-select option[value='" + label + "']").remove();
+            }
+
+        });
+
+        // if the user is using the Block Editor (Gutenberg) remove the categories panel, aka the categories meta box
+        if (wp.data.dispatch('core/edit-post')) {
+            wp.data.dispatch('core/edit-post').removeEditorPanel('taxonomy-panel-category');
+        }
+    });
+})(jQuery);

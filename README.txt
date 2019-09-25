@@ -1,17 +1,20 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: joshsmith01
 Donate link: https://www.efficiencyofmovement.com
-Tags: comments, spam
+Tags: comments, category, primary
 Requires at least: 3.0.1
 Tested up to: 3.4
-Stable tag: 4.3
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Allow publishers to designate a primary category for their posts.
 
 == Description ==
 
+Enhance post category taxonomies with a primary category. Use this plugin to add a dropdown of categories to the
+Categories meta box in the Post edit screen. Content creators can determine the primary category from that dropdown list
+.
 This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
 
 For backwards compatibility, if this section is missing, the full length of the short description will be used, and
@@ -39,23 +42,23 @@ you put the stable version, in order to eliminate any doubt.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+#### Download
+1. Visit the homepage for this plugin: https://github.com/joshsmith01/eom-designate-primary-post-category
+2. Download the .zip file
+3. Unzip the .zip to you computer
+4. Upload `eom-designate-primary-post-category.php` to the `/wp-content/plugins/` directory
+5. Activate the plugin through the 'Plugins' menu in WordPress
 
-e.g.
-
-1. Upload `eom-designate-primary-post-category.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+#### Git
+1. Open a terminal and navigate to the `wp-content/plugins` directory
+2. Clone the repo: `git clone git@github.com:joshsmith01/eom-designate-primary-post-category.git`
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Will I lose my categories if I stop using this plugin? =
 
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+No, this plugin essentially duplicates the existing categories meta data and adds a primary category to it.
+If you delete this plugin, all of the categories will remain.
 
 == Screenshots ==
 
@@ -68,21 +71,30 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 == Changelog ==
 
 = 1.0 =
-* A change since the previous version.
-* Another change.
+* Initial launch
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+== Query for posts with a Primary Category ==
 
-== Upgrade Notice ==
+Now that you have a Primary Category attached to your posts you will want to query for posts based on their Primary Category. Below is a quick snippet that uses the built-in WordPress Query to retrieve posts with the Primary Category of your specification. The important part of the query is the supplied arguments that use the Meta Key of `_primary_category`.
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
+In the snippet below, the `meta_value` of "Happy" is supplied, but it should be whatever value of your Primary Category is that you want to display. The snippet below is also searching in the WordPress post type of "post", but also the WordPress Custom Post type of "book".
 
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
+Find more information about querying by [Post Meta in the WordPress Developer Documentation](https://developer.wordpress.org/reference/classes/wp_query/#custom-field-post-meta-parameters).
 
-== Arbitrary section ==
+Don't forget to check if the plugin is active first.
+```php
+<?php
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if( is_plugin_active( 'eom-designate-primary-post-category/eom-designate-primary-post-category.php' ) ) {
+    // EOM designate Primary Post Category is active
+    $args = array(
+        'meta_value' => 'Happy',
+        'meta_key' => '_primary_category',
+        'post_type'  => array('book', 'post'),
+    );
+    $query = new WP_Query( $args );
+}
+```
 
 You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
 plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
