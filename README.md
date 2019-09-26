@@ -9,10 +9,10 @@ License: GPLv2 or later<br />
 License URI: http://www.gnu.org/licenses/gpl-2.0.html<br />
 
 
-Allow publishers to designate a primary category for their posts.
+Designate a primary category for posts.
 ## Description ##
 
-Enhance post category taxonomies with a primary category. Use this plugin to add a dropdown of categories to the
+Enhance post categories by adding a primary category. Use this plugin to add a dropdown of categories to the
 Categories meta box in the Post edit screen. Content creators can determine the primary category from that dropdown list.
 
 ## Installation ##
@@ -49,6 +49,7 @@ In the snippet below, the `meta_value` of "Happy" is supplied, but it should be 
 
 Don't forget to check if the plugin is active first. 
 ```php
+
 <?php
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if( is_plugin_active( 'eom-designate-primary-post-category/eom-designate-primary-post-category.php' ) ) {

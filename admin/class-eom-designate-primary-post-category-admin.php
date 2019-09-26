@@ -66,7 +66,7 @@ class Eom_Designate_Primary_Post_Category_Admin {
         global $wp_meta_boxes;
 
         $args = array(
-            'public' => true,
+            'public'   => true,
             '_builtin' => false,
         );
 
@@ -84,6 +84,7 @@ class Eom_Designate_Primary_Post_Category_Admin {
                 'default' );
         }
 
+        // Disable Yoast's version of Primary Category
         add_filter( 'wpseo_primary_term_taxonomies', '__return_empty_array' );
 
     }
