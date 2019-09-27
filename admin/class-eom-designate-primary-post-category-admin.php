@@ -99,7 +99,7 @@ class Eom_Designate_Primary_Post_Category_Admin {
         post_categories_meta_box( $post, array() );
 
         // Get the value of the primary category key for comparison later
-        $value = get_post_meta( $post->ID, '_primary_category', true );
+        $value = get_post_meta( $post->ID, '_eom_primary_category', true );
         ?>
 
         <label for="primary-category-select"><?php _e( 'Primary Category', 'eom-designate-primary-post-category' ); ?>
@@ -131,7 +131,7 @@ class Eom_Designate_Primary_Post_Category_Admin {
         if ( array_key_exists( 'primary-category', $_POST ) ) {
             update_post_meta(
                 $post_id,
-                '_primary_category',
+                '_eom_primary_category',
                 $_POST['primary-category']
             );
         }
